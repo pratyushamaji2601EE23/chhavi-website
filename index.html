@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chhavi — A Little Piece of You</title>
+  <meta name="description" content="Meet Chhavi, a digital presence brought to life through conversation.">
+  <script src="https://dashboard.openspline.dev/embed.js" defer></script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #28203c;
+      --muted: #776d87;
+      --purple: #7956d8;
+      --pink: #f4cfe3;
+      --cream: #fffaf6;
+    }
+
+    body {
+      font-family: Inter, "Segoe UI", sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 8%;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span { color: var(--purple); }
+
+    .nav-note {
+      font-size: .8rem;
+      color: var(--muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 65px 7% 85px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      border: 1px solid #e7dafa;
+      color: var(--purple);
+      border-radius: 30px;
+      padding: 9px 15px;
+      font-size: .78rem;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: clamp(3.3rem, 6vw, 5.7rem);
+      line-height: .98;
+      letter-spacing: -4px;
+      margin-bottom: 25px;
+    }
+
+    h1 em {
+      font-family: Georgia, serif;
+      color: var(--purple);
+      font-weight: 400;
+    }
+
+    .intro {
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.85;
+      max-width: 420px;
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 24px;
+      border-radius: 30px;
+      color: white;
+      background: var(--purple);
+      text-decoration: none;
+      font-weight: 650;
+      box-shadow: 0 8px 25px #7956d833;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px #7956d844;
+    }
+
+    .micro {
+      margin-top: 17px;
+      color: #92869e;
+      font-size: .8rem;
+    }
+
+    .avatar-card {
+      position: relative;
+      border-radius: 35px;
+      padding: 22px;
+      background:
+        radial-gradient(ellipse at 20% 10%, #f8d8e8, transparent 45%),
+        radial-gradient(ellipse at 90% 90%, #dcd0ff, transparent 48%),
+        #f1eafa;
+      border: 1px solid #e9def3;
+      box-shadow: 0 25px 70px #59427a14;
+      min-height: 380px;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+      font-size: .8rem;
+    }
+
+    .status {
+      color: #397c62;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .dot {
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      background: #57b88a;
+    }
+
+    .avatar-stage {
+      min-height: 270px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      border-radius: 23px;
+      background: #ffffffa6;
+      padding: 12px;
+    }
+
+    openspline-cloud {
+      display: block;
+      width: 100%;
+      min-height: 280px;
+    }
+
+    .card-caption {
+      text-align: center;
+      padding: 18px 5px 4px;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .section {
+      padding: 65px 8%;
+      background: #f4effa;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      margin-bottom: 15px;
+    }
+
+    .section > p {
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 950px;
+      margin: 40px auto 0;
+      text-align: left;
+    }
+
+    .feature {
+      padding: 24px;
+      border: 1px solid #e8def2;
+      border-radius: 22px;
+      background: #fffaf6;
+    }
+
+    .feature .symbol {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+    }
+
+    .feature h3 { margin-bottom: 9px; }
+
+    .feature p {
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.7;
+    }
+
+    footer {
+      padding: 25px;
+      text-align: center;
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 760px) {
+      nav { padding: 22px 6%; }
+      .nav-note { font-size: .65rem; letter-spacing: 1px; }
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 40px 6% 60px;
+        gap: 38px;
+      }
+      h1 { letter-spacing: -2px; }
+      .avatar-card { min-height: 330px; }
+      .features { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="logo">chhavi<span>.</span></div>
+    <div class="nav-note">A new kind of connection</div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">✦ YOUR DIGITAL SPACE</div>
+
+        <h1>A little piece<br>of you,<br><em>brought to life.</em></h1>
+
+        <p class="intro">
+          What if a face could be more than a picture?
+          Meet Chhavi — a digital presence made for
+          conversations, curiosity and connection.
+        </p>
+
+        <a class="cta" href="#meet">
+          Meet Chhavi ↓
+        </a>
+
+        <p class="micro">A face. A voice. A conversation.</p>
+      </div>
+
+      <div class="avatar-card" id="meet">
+        <div class="card-top">
+          <strong>Meet Chhavi</strong>
+          <span class="status"><span class="dot"></span> Ready to connect</span>
+        </div>
+
+        <div class="avatar-stage">
+          <openspline-cloud
+            cloud-url="https://dashboard.openspline.dev"
+            path="chhavi">
+          </openspline-cloud>
+        </div>
+
+        <p class="card-caption">
+          Say hello and start a conversation.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>More than a picture.</h2>
+      <p>
+        A new way to experience a digital identity.
+        Not just something to look at, but something
+        you can interact with.
+      </p>
+
+      <div class="features">
+        <article class="feature">
+          <div class="symbol">✧</div>
+          <h3>A face with a voice</h3>
+          <p>Experience an avatar that brings a visual identity into conversation.</p>
+        </article>
+
+        <article class="feature">
+          <div class="symbol">♡</div>
+          <h3>Made to connect</h3>
+          <p>Turn a simple visit into an opportunity to talk, listen and explore.</p>
+        </article>
+
+        <article class="feature">
+          <div class="symbol">☼</div>
+          <h3>A glimpse of tomorrow</h3>
+          <p>Explore how interactive AI can make the web feel more personal.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Made with curiosity and a little bit of magic ✦
+    <br>Chhavi · OpenSpline Challenge
+  </footer>
+</body>
+</html>
